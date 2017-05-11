@@ -5,6 +5,7 @@
  */
 package br.edu.ifpb.tcc.conversormetrics;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
@@ -19,8 +20,11 @@ import javax.xml.bind.Unmarshaller;
  */
 public class Loader {
 
+    final static String priscila_path = "D:\\ADS\\Outros\\TCC\\Repositorios\\metrics-xml-reader\\src\\main\\java\\resource\\parametros.xml";
+    final static String job_path = "/Users/job/Downloads/ConversorMetricsq/ConversorMetricsq/src/main/java/resource/parametros.xml";
+
     public static void main(String[] args) {
-        Metrics c1 =  new Loader().unmarshal(Metrics.class, "/Users/job/Downloads/ConversorMetricsq/ConversorMetricsq/src/main/java/resource/parametros.xml");
+        Metrics c1 = new Loader().unmarshal(Metrics.class, priscila_path);
         c1.toString();
         System.out.println("c1 = " + c1);
     }
@@ -29,15 +33,13 @@ public class Loader {
         try {
             JAXBContext context = JAXBContext.newInstance(clazz);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            return  (Metrics) unmarshaller.unmarshal(
+            return (Metrics) unmarshaller.unmarshal(
                     new FileInputStream(xml)
             );
-        } catch (JAXBException e) {
-            e.printStackTrace();
-
-        } catch (FileNotFoundException ex) {
+        
+        } catch (FileNotFoundException | JAXBException ex) {
             Logger.getLogger(Loader.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return null;
+        return null;
     }
 }

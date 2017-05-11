@@ -5,9 +5,11 @@
  */
 package br.edu.ifpb.tcc.conversormetrics;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  *
@@ -20,17 +22,9 @@ public class Metric {
     private String id;
     @XmlAttribute
     private String description;
-//    @XmlAttribute
-//    protected double avg;
-//    @XmlAttribute
-//    protected String stdDev;
-//    @XmlAttribute
-//    protected double total;
-//    @XmlAttribute
-//    protected double max;
-
-   
-
+    @XmlElement(name = "Values")
+    private List<Values> values;
+    
     public String getId() {
         return id;
     }
@@ -47,39 +41,20 @@ public class Metric {
         this.description = description;
     }
 
-//    public double getAvg() {
-//        return avg;
-//    }
-//
-//    public void setAvg(double avg) {
-//        this.avg = avg;
-//    }
-//
-//    public String getStdDev() {
-//        return stdDev;
-//    }
-//
-//    public void setStdDev(String stdDev) {
-//        this.stdDev = stdDev;
-//    }
-//
-//    public double getMax() {
-//        return max;
-//    }
-//
-//    public void setMax(double max) {
-//        this.max = max;
-//    }
+    public List<Values> getValues() {
+        return values;
+    }
 
-//    @Override
-//    public String toString() {
-//        return "Metric{ id=" + id + ", description=" + description + ", avg=" + avg + ", stdDev=" + stdDev + ", max=" + max + '}';
-//    }
+    public void setValues(List<Values> values) {
+        this.values = values;
+    }
 
     @Override
     public String toString() {
-        return "Metric{" + "id=" + id + ", description=" + description + '}';
+        return "\n---Metric " + "id=" + id + ", description=" + description + ", values=" + values + '\n';
     }
+
+    
     
     
     

@@ -5,7 +5,6 @@
  */
 package br.edu.ifpb.tcc.conversormetrics;
 
-import java.net.URI;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -52,7 +51,7 @@ public class Metrics {
 
     @Override
     public String toString() {
-        return "Metrics{" + "scope=" + scope + ", date=" + date + ", metrics=" + metric +'}';
+        return "Metrics{" + "scope=" + scope + ", date=" + date + ",\n metrics=" + metric + '}';
     }
     
     
